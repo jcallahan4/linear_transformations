@@ -1,15 +1,19 @@
 # linear_transformations.py
-"""Volume 1: Linear Transformations.
+"""
+Linear Transformations
 Jake Callahan
-Section 002
 2018/09/18
+
+Linear transformations are the most basic and essential operators in vector space
+theory. In this program we visually explore how linear transformations alter points
+in the Cartesian plane. We also empirically explore the computational cost of
+applying linear transformations via matrix multiplication.
 """
 from matplotlib import pyplot as plt
 from random import random
 import numpy as np
 import time
 
-# Problem 1
 def stretch(A, a, b):
     """Scale the points in A by a in the x direction and b in the
     y direction.
@@ -99,8 +103,6 @@ def test_transforms():
 
     plt.show()
 
-
-# Problem 2
 def solar_system(T, x_e, x_m, omega_e, omega_m):
     """Plot the trajectories of the earth and moon over the time interval [0,T]
     assuming the initial position of the earth is (x_e,0) and the initial
@@ -137,8 +139,6 @@ def solar_system(T, x_e, x_m, omega_e, omega_m):
     plt.axis("equal")
     plt.show()
 
-
-
 def random_vector(n):
     """Generate a random vector of length n as a list."""
     return [random() for i in range(n)]
@@ -159,18 +159,13 @@ def matrix_matrix_product(A, B):
                                     for j in range(p) ]
                                     for i in range(m) ]
 
-# Problem 3
-def prob3():
-    """Use time.time(), timeit.timeit(), or %timeit to time
-    matrix_vector_product() and matrix-matrix-mult() with increasingly large
-    inputs. Generate the inputs A, x, and B with random_matrix() and
-    random_vector() (so each input will be nxn or nx1).
-    Only time the multiplication functions, not the generating functions.
+def time_multiplication():
+    """Use time.time() to time matrix_vector_product() and matrix-matrix-mult()
+    with increasingly large inputs. Generate the inputs A, x, and B with
+    random_matrix() and random_vector() (so each input will be nxn or nx1).
 
-    Report your findings in a single figure with two subplots: one with matrix-
-    vector times, and one with matrix-matrix times. Choose a domain for n so
-    that your figure accurately describes the growth, but avoid values of n
-    that lead to execution times of more than 1 minute.
+    Plot the results in a single figure with two subplots: one with matrix-
+    vector times, and one with matrix-matrix times.
     """
     #Set initial lists to store time values
     matrix_times = []
@@ -208,11 +203,10 @@ def prob3():
 
     plt.show()
 
-# Problem 4
-def prob4():
+def time_products():
     """Time matrix_vector_product(), matrix_matrix_product(), and np.dot().
 
-    Report your findings in a single figure with two subplots: one with all
+    Plot results in a single figure with two subplots: one with all
     four sets of execution times on a regular linear scale, and one with all
     four sets of exections times on a log-log scale.
     """
